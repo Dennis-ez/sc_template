@@ -18,7 +18,6 @@ import MenuSection from "./components/MenuSection";
 const rtlID = "61d1ca1179ddf315af528f18";
 const testID = "61d1cf6979ddf315af5290f7";
 const testID2 = "61d300cc79ddf315af529d28";
-const ltrID = "61aa12b7b0f308c9372b12d1";
 let cardID = testID2;
 /////////////////////////////
 
