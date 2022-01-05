@@ -25,26 +25,27 @@ let cardID = testID2;
 let theme = createTheme({});
 let backgroundStyle;
 const apiURL =
-  "https://dolphincard-server-pir3z.ondigitalocean.app/api/card/" + cardID;
+  "https://dolphincard-server-pir3z.ondigitalocean.app/api/card/preview/" +
+  cardID;
 
 function themeInit(cardData) {
   (backgroundStyle = {
-    backgroundColor: cardData.content.bgColor,
-    backgroundImage: `url(${cardData.content.images.bgImg})`,
+    backgroundColor: cardData.bgColor,
+    backgroundImage: `url(${cardData.images.bgImg})`,
   }),
     (theme = createTheme({
-      direction: cardData?.content.direction,
+      direction: cardData?.direction,
       palette: {
         text: {
-          primary: cardData?.content.fontColor,
+          primary: cardData?.fontColor,
         },
         primary: {
-          main: cardData?.content.accentColor,
-          contrastText: ColorLuminance(cardData?.content.componentBgColor, 1),
+          main: cardData?.accentColor,
+          contrastText: cardData?.buttonColor,
         },
         background: {
-          paper: cardData?.content.componentBgColor + "D9",
-          default: cardData?.content.componenetBgColor,
+          paper: cardData?.componentBgColor + "D9",
+          default: cardData?.componenetBgColor,
         },
       },
       shape: {
@@ -55,10 +56,7 @@ function themeInit(cardData) {
           styleOverrides: {
             root: {
               "&:hover": {
-                backgroundColor: ColorLuminance(
-                  cardData?.content.accentColor,
-                  0.2
-                ),
+                backgroundColor: ColorLuminance(cardData?.accentColor, 0.2),
               },
             },
           },
@@ -67,12 +65,9 @@ function themeInit(cardData) {
           styleOverrides: {
             root: {
               textTransform: "none",
-              direction: cardData?.content.direction,
+              direction: cardData?.direction,
               "&:hover": {
-                backgroundColor: ColorLuminance(
-                  cardData?.content.accentColor,
-                  0.2
-                ),
+                backgroundColor: ColorLuminance(cardData?.accentColor, 0.2),
               },
             },
           },
@@ -80,17 +75,14 @@ function themeInit(cardData) {
         MuiAccordion: {
           styleOverrides: {
             root: {
-              backgroundColor: cardData?.content.accentColor,
+              backgroundColor: cardData?.accentColor,
               padding: 15,
               width: "70%",
               "&$expanded": {
                 borderRadius: 50,
               },
               "&:hover": {
-                backgroundColor: ColorLuminance(
-                  cardData?.content.accentColor,
-                  0.1
-                ),
+                backgroundColor: ColorLuminance(cardData?.accentColor, 0.1),
               },
             },
           },
@@ -119,29 +111,29 @@ function App() {
   useEffect(() => {
     fetchData();
   }, []);
+
   return (
     <div className={styles.App} style={backgroundStyle}>
       {!cardData ? (
         BackDropLayer
       ) : (
         <>
-          <Vcard cardData={cardData.content} theme={theme} />
-          <TopBanner cardData={cardData.content} theme={theme} />
-          {cardData.content.socials.isActive && (
-            <Socials cardData={cardData.content} theme={theme} />
+          <Vcard cardData={cardData} theme={theme} />
+          <TopBanner cardData={cardData} theme={theme} />
+          {cardData.socials && <Socials cardData={cardData} theme={theme} />}
+          {cardData.menuButtons && (
+            <MenuSection menuData={cardData.menuButtons} theme={theme} />
           )}
-          <MenuSection menuData={cardData.content.menuButtons} theme={theme} />
-          {cardData.content.mainContent.isActive && (
-            <MainContent cardData={cardData.content} theme={theme} />
+
+          {cardData.mainContent && (
+            <MainContent cardData={cardData} theme={theme} />
           )}
-          {cardData.content.Qa[0].isActive && (
-            <Qa qaData={cardData.content?.Qa} theme={theme} />
+          {cardData.Qa && <Qa qaData={cardData?.Qa} theme={theme} />}
+          {isLoaded && cardData.gallery.images && (
+            <SwipingGallery cardData={cardData} theme={theme} />
           )}
-          {cardData.content.gallery.isActive && (
-            <SwipingGallery cardData={cardData.content} theme={theme} />
-          )}
-          <ContactUs cardData={cardData.content} theme={theme} />
-          <BottomSection cardData={cardData.content} theme={theme} />
+          <ContactUs cardData={cardData} theme={theme} />
+          <BottomSection cardData={cardData} theme={theme} />
         </>
       )}
     </div>

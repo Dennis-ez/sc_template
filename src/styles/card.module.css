@@ -1,14 +1,11 @@
-body {
+* {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: Arial;
+}
+body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
 }
 
 .App {
@@ -40,12 +37,14 @@ a {
   right: 0;
 }
 .componentContainer {
+  text-align: initial;
+
   box-shadow: 0px 10px 13px -6px rgba(0, 0, 0, 0.2),
     0px 20px 31px 3px rgba(0, 0, 0, 0.14), 0px 8px 38px 7px rgba(0, 0, 0, 0.12) !important;
   -webkit-backdrop-filter: blur(8px) !;
   backdrop-filter: blur(8px);
   padding: 3.6%;
-  width: 30%;
+  width: 700px;
 }
 .noTextDecoration {
   text-decoration: none;
@@ -150,8 +149,8 @@ a {
 }
 .sectionTitle {
   font-size: 1.9em;
-  margin-top: -2%;
   text-align: center;
+  margin-bottom: 12px;
 }
 
 .faq {
@@ -197,24 +196,26 @@ a {
 
 .contactUsItem {
   margin-left: auto !important;
-  display: -webkit-inline-box;
-  width: 55%;
+  display: flex;
+  width: 100%;
   margin-right: auto !important;
+  align-items: center;
+  justify-content: center;
 }
 
 .formLabel {
   position: relative;
   font-weight: 600;
   font-size: 1.3rem;
-  width: 100px;
+  width: 120px;
 }
 
 .contactUsForm input {
-  width: 15vw;
+  width: 300px;
   margin-top: 15px;
 }
 .contactUsForm textarea {
-  width: 15vw;
+  width: 300px;
 }
 .contactUsForm button {
   margin-top: 1.6em;

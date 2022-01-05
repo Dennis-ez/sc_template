@@ -22,6 +22,7 @@ const SwipingGallery = ({ cardData, theme }) => {
     <>
       <ThemeProvider theme={theme}>
         <Paper
+          data-aos="fade-up"
           className={
             cardData.gallery.images.length > 1 &&
             `${"swiper"} ${styles.componentContainer}`
@@ -32,7 +33,11 @@ const SwipingGallery = ({ cardData, theme }) => {
           }}
         >
           <h1
-            className={styles.sectionTitle}
+            className={
+              cardData.gallery.images.length > 0
+                ? styles.sectionTitle
+                : styles.hidden
+            }
             style={{ color: theme.palette.primary.main }}
           >
             {cardData.direction === "rtl" ? "גלריה" : "Gallery"}
