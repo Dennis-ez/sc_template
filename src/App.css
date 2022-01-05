@@ -1,38 +1,456 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Alef:wght@400;700&display=swap");
+
+iframe {
+  border: 0px;
+  border-radius: 15px;
+}
+textarea {
+  resize: none;
+}
+
+.glassMorph {
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.25);
+  -webkit-backdrop-filter: blur(11px);
+  backdrop-filter: blur(11px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 50px;
+  width: 900px;
+}
+
 .App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0%;
+  font-family: "Alef";
+  gap: 60px;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: #000000;
+  text-decoration: none;
+}
+a:active {
+  text-decoration: none;
+}
+body {
+  margin: 0;
+  list-style: none;
+  background-size: 60%;
+}
+
+.section-title {
+  font-size: 40px;
+  margin-top: -10px;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.top-text {
+  position: absolute;
+  text-align: center;
+  bottom: 8vw;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+.top-text-name {
+  font-size: 4vw;
+  font-weight: 600;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.top-text-title {
+  font-size: 3vw;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.top-banner {
+  position: relative;
+  width: 100%;
+  top: 0px;
+  -webkit-user-drag: none;
+}
+.company-logo {
+  position: relative;
+  width: 250px;
+  top: -90px;
+  border-radius: 50%;
+  box-shadow: 0 -1px 25px 0 rgba(31, 38, 135, 0.25);
+  margin: -110px;
+  -webkit-user-drag: none;
+}
+
+.navbar {
+  list-style: none;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  -ms-grid-rows: 1fr 1fr;
+  margin-left: auto;
+  margin-right: auto;
+  margin: 0;
+  column-gap: 0vw;
+}
+
+.navbar a {
+  font-size: 28px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+  justify-self: center;
+}
+
+.navbar li {
+  list-style: none;
+  flex: 1 25%;
+  padding: 25px;
+  font-size: 20px;
+}
+
+.navbar li:hover {
+  filter: brightness(1.25);
+}
+.main-content-container {
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  text-align: center;
+}
+
+.main-content-title {
+  font-size: 40px;
+  margin-top: -10px;
+}
+
+.main-content {
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 30px;
+}
+
+.faq {
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+}
+.faq-name {
+  text-align: center;
+  font-size: 22px;
+  margin-top: -30px;
+}
+.faq-item {
+  margin-bottom: 5px;
+  padding: 10px 20px;
+  border-radius: 15px;
+}
+
+.faq-title {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-align: right;
+}
+
+.faq-title span {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.faq-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.8s cubic-bezier(0, 1, 0, 1);
+  font-size: 20px;
+}
+.faq-content.show {
+  height: auto;
+  max-height: 9999px;
+  transition: all 0.8s cubic-bezier(1, 0, 1, 0);
+  font-size: 20px;
+}
+
+.contact-us-form label {
+  font-size: 26px;
+  float: right;
+  clear: right;
+  width: 130px;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.contact-us-form {
+  display: flex;
+  flex-direction: column;
+  align-items: right;
+}
+
+.contact-us-form input {
+  border: 1px solid white;
+  margin-bottom: 15px;
+  font-size: 18px;
+  width: 300px;
+  height: 35px;
+  border-radius: 10px;
+}
+
+.contact-us-form textarea {
+  width: 300px;
+  height: 150px;
+  font-size: 18px;
+  border: 1px solid white;
+  font-family: "Alef";
+  border-radius: 10px;
+}
+
+.contact-us-form button {
+  margin-top: 50px;
   color: white;
+  font-size: 20px;
+  border: none;
+  width: 440px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.contact-us-form button:hover {
+  filter: brightness(1.25);
 }
 
-.App-link {
-  color: #61dafb;
+.contact-us-form-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.contact-us-title {
+  text-align: center;
+  font-size: 22px;
+  margin-top: -40px;
+}
+
+.bottom-section {
+  text-align: center;
+  margin-top: -30px;
+  margin-bottom: 20px;
+}
+
+.bottom-section-content {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: auto;
+  column-gap: 15px;
+  padding: 10px;
+}
+
+.swiper-slide {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 800px;
+  height: 600px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.swiper-title {
+  text-align: center;
+  font-size: 30px;
+  margin-top: -20px;
+}
+
+.hidden {
+  display: none;
+}
+@media only screen and (min-width: 360px) and (max-width: 991px) {
+  body {
+    background-size: 100%;
   }
-  to {
-    transform: rotate(360deg);
+
+  iframe {
+    position: relative;
+    width: 100%;
+    height: 10%;
+  }
+  .glassMorph {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px;
+  }
+
+  .top-banner {
+    height: 40vw;
+    width: 100%;
+  }
+
+  .company-logo {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: 1vw;
+    border-radius: 50%;
+    box-shadow: 0 -1px 25px 0 rgba(31, 38, 135, 0.25);
+    width: 40vw;
+    margin-bottom: -10px;
+  }
+
+  .navbar {
+    justify-content: center;
+  }
+
+  .navbar li {
+    list-style: none;
+    margin-bottom: 10px;
+    padding: 15px;
+  }
+
+  .navbar a {
+    font-size: 5vw;
+  }
+
+  .main-content-title {
+    font-size: 9vw;
+    margin-bottom: -10px;
+  }
+
+  .main-content {
+    font-size: 5vw;
+  }
+
+  .faq-name {
+    font-size: 5vw;
+  }
+  .faq-item {
+    font-size: 3vw;
+  }
+
+  .faq-content {
+    font-size: 4vw;
+  }
+  .faq-content.show {
+    font-size: 4vw;
+  }
+  .faq {
+    width: 100%;
+  }
+
+  .swiper-title {
+    font-size: 7vw;
+    margin-bottom: 15px;
+  }
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 15px;
+  }
+
+  .contact-us-title {
+    font-size: 5vw;
+    margin-bottom: -5px;
+  }
+  .contact-us-form label {
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-weight: 600;
+    margin-left: -5px;
+  }
+
+  .contact-us-form input {
+    width: 80%;
+  }
+
+  .contact-us-form-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0;
+  }
+
+  .contact-us-form textarea {
+    width: 80%;
+  }
+
+  .contact-us-form button {
+    width: 100%;
+  }
+  .top-text {
+    top: 30%;
+  }
+  .top-text-name {
+    font-size: 8vw;
+  }
+
+  .top-text-title {
+    font-size: 7vw;
+  }
+  .section-title {
+    font-size: 30px;
+    margin-top: -10px;
+    text-align: center;
   }
 }
+@media only screen and (width: 768px) {
+  .top-text {
+    top: 50%;
+  }
+
+  .top-text-name {
+    font-size: 5vw;
+  }
+
+  .top-text-title {
+    font-size: 4vw;
+  }
+  .top-banner {
+    height: 100%;
+  }
+  .company-logo {
+    width: 25vw;
+  }
+
+  .navbar {
+    justify-content: center;
+  }
+
+  .navbar li {
+    list-style: none;
+    margin-bottom: 10px;
+  }
+
+  .navbar a {
+    font-size: 3vw;
+  }
+}
+
+@media only screen and (width: 1024px) {
+  .top-text {
+    top: 50%;
+  }
+} */
